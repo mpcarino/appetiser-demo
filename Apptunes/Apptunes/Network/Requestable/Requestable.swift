@@ -5,15 +5,24 @@
 //  Created by Marwin Carino on 8/22/21.
 //
 
+// https://medium.com/flawless-app-stories/writing-network-layer-in-swift-protocol-oriented-approach-4fa40ef1f908
+
 import Foundation
 import Moya
 import PromiseKit
 
+// MARK: - Typealias
+typealias EmptyPromise = Promise<Void>
+
+// MARK: - Protocols
 protocol Requestable {
-    @discardableResult func request<T: TargetType, C: Codable> (provider: MoyaProvider<T>, target: T, response: C.Type) -> Promise<C>
+    @discardableResult
+    func callBasicAPIRequest<T: TargetType> (provider: MoyaProvider<T>, target: T) -> EmptyPromise
     
-    @discardableResult func emptyRequest<T: TargetType> (provider: MoyaProvider<T>, target: T) -> Promise<Void>
+    @discardableResult
+    func callAPIRequest<T: TargetType, C: Codable> (provider: MoyaProvider<T>, target: T, response: C.Type, at keyPath: String?) -> Promise<C>
 }
+
 // MARK: - Extensions
 extension Requestable {
     var curlPlugin: NetworkLoggerPlugin {
@@ -21,39 +30,44 @@ extension Requestable {
             .init(logOptions: .formatRequestAscURL))
     }
     
-    @discardableResult func request<T: TargetType, C: Codable> (provider: MoyaProvider<T>, target: T, response: C.Type) -> Promise<C> {
-        return Promise<C> { seal in
+    @discardableResult
+    func callBasicAPIRequest<T: TargetType> (provider: MoyaProvider<T>, target: T) -> EmptyPromise {
+        return EmptyPromise { seal in
             provider.request(target) { result in
                 switch result {
-                case .success(let response):
-                    let data = response.data
+                case .success(_):
+                    Logger.log(type: .success, title: "API", message: "Successful basic API request: \(target.baseURL)\(target.path)")
                     
-                    print(data)
-                    
-                    do {
-                        let decodedResponse: C = try JSONDecoder().decode(C.self, from: data)
-                        seal.fulfill(decodedResponse)
-                    } catch(let error) {
-                        seal.reject(error)
-                    }
+                    seal.fulfill(())
                 case .failure(let error):
+                    Logger.log(type: .failure, title: "API", message: "Failed basic API request: \(target)")
+                
                     seal.reject(error)
                 }
             }
         }
     }
     
-    @discardableResult func emptyRequest<T: TargetType> (provider: MoyaProvider<T>, target: T) -> Promise<Void> {
-        return Promise<Void> { seal in
+    @discardableResult
+    func callAPIRequest<T: TargetType, C: Codable> (provider: MoyaProvider<T>, target: T, response: C.Type, at keyPath: String? = nil) -> Promise<C> {
+        return Promise<C> { seal in
             provider.request(target) { result in
                 switch result {
                 case .success(let response):
-                    let data = response.data
-                    
-                    print(data)
-                    
-                    seal.fulfill(())
+                    Logger.log(type: .success, title: "API", message: "Successful API request: \(target.baseURL)\(target.path)")
+                
+                    do {
+                        let decodedResponse = try response.map(C.self, atKeyPath: keyPath)
+                        
+                        seal.fulfill(decodedResponse)
+                    } catch(let error) {
+                        Logger.log(type: .failure, title: "JSON Mapping", message: "Failed JSON mapping: \(target) - \(type(of: C.self))")
+                        
+                        seal.reject(error)
+                    }
                 case .failure(let error):
+                    Logger.log(type: .failure, message: "Failed API request: \(target)")
+                    
                     seal.reject(error)
                 }
             }
