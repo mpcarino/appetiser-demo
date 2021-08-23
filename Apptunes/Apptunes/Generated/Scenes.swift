@@ -17,10 +17,25 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum Main: StoryboardType {
+    internal static let storyboardName = "Main"
+
+    internal static let initialScene = InitialSceneType<UIKit.UITabBarController>(storyboard: Main.self)
+  }
+  internal enum Movies: StoryboardType {
+    internal static let storyboardName = "Movies"
+
+    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Movies.self)
+  }
+  internal enum Songs: StoryboardType {
+    internal static let storyboardName = "Songs"
+
+    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Songs.self)
+  }
   internal enum Splash: StoryboardType {
     internal static let storyboardName = "Splash"
 
-    internal static let initialScene = InitialSceneType<Apptunes.SplashViewController>(storyboard: Splash.self)
+    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Splash.self)
 
     internal static let splashViewController = SceneType<Apptunes.SplashViewController>(storyboard: Splash.self, identifier: "SplashViewController")
   }
