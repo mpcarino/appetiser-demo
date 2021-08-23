@@ -39,6 +39,10 @@
 		65AC61B026D36E9D0070043E /* UIImageView+Kf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61AF26D36E9D0070043E /* UIImageView+Kf.swift */; };
 		65AC61B226D36EE00070043E /* UIViewController+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61B126D36EE00070043E /* UIViewController+URL.swift */; };
 		65AC61B426D36F590070043E /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61B326D36F590070043E /* SongTableViewController.swift */; };
+		65AC61B826D374E60070043E /* ItunesTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61B726D374E60070043E /* ItunesTrack.swift */; };
+		65AC61BB26D3757B0070043E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61BA26D3757B0070043E /* Logger.swift */; };
+		65AC61C226D378E50070043E /* UserDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61C026D378E40070043E /* UserDataStore.xcdatamodeld */; };
+		65AC61C726D382AE0070043E /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61C626D382AE0070043E /* UserDataManager.swift */; };
 		CEF515253B39C7B81EC68FC6 /* Pods_Apptunes_ApptunesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1088ABC16C5A606AD600A7 /* Pods_Apptunes_ApptunesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +105,10 @@
 		65AC61AF26D36E9D0070043E /* UIImageView+Kf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kf.swift"; sourceTree = "<group>"; };
 		65AC61B126D36EE00070043E /* UIViewController+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+URL.swift"; sourceTree = "<group>"; };
 		65AC61B326D36F590070043E /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
+		65AC61B726D374E60070043E /* ItunesTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesTrack.swift; sourceTree = "<group>"; };
+		65AC61BA26D3757B0070043E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		65AC61C126D378E40070043E /* UserDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataStore.xcdatamodel; sourceTree = "<group>"; };
+		65AC61C626D382AE0070043E /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		9E36507F78A588E57A620F9B /* Pods-ApptunesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptunesTests.release.xcconfig"; path = "Target Support Files/Pods-ApptunesTests/Pods-ApptunesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A37CB7CC1343D4994DBA21D5 /* Pods-Apptunes-ApptunesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes-ApptunesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Apptunes-ApptunesUITests/Pods-Apptunes-ApptunesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1500EE9E7D5BF6172B9D4F5 /* Pods-Apptunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes.release.xcconfig"; path = "Target Support Files/Pods-Apptunes/Pods-Apptunes.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +175,10 @@
 				65AC618226D35AF70070043E /* Protocols */,
 				65AC619C26D367FF0070043E /* IBDesignables */,
 				65AC61A726D368E50070043E /* Extensions */,
+				65AC61BF26D378AF0070043E /* Data */,
+				65AC61B926D375540070043E /* Helpers */,
+				65AC61C326D380560070043E /* Managers */,
+				65AC61B526D3749E0070043E /* Models */,
 				65AC618526D35B4F0070043E /* Modules */,
 				65AC617826D358E30070043E /* Network */,
 				65AC616A26D355B50070043E /* Resources */,
@@ -337,6 +349,46 @@
 				65AC61AD26D36DDC0070043E /* SongTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		65AC61B526D3749E0070043E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65AC61B626D374AB0070043E /* Responses */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		65AC61B626D374AB0070043E /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				65AC61B726D374E60070043E /* ItunesTrack.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		65AC61B926D375540070043E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				65AC61BA26D3757B0070043E /* Logger.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		65AC61BF26D378AF0070043E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				65AC61C026D378E40070043E /* UserDataStore.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		65AC61C326D380560070043E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				65AC61C626D382AE0070043E /* UserDataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		A54513727FBE722F505707B2 /* Pods */ = {
@@ -629,13 +681,17 @@
 				65AC617B26D3591A0070043E /* Requestable.swift in Sources */,
 				65AC617526D3580E0070043E /* Strings.swift in Sources */,
 				65AC61A426D368990070043E /* BorderProtocol.swift in Sources */,
+				65AC61BB26D3757B0070043E /* Logger.swift in Sources */,
 				65AC61A026D3682E0070043E /* DesignableView.swift in Sources */,
+				65AC61B826D374E60070043E /* ItunesTrack.swift in Sources */,
 				65AC61A226D368830070043E /* RefreshableViewProtocol.swift in Sources */,
+				65AC61C226D378E50070043E /* UserDataStore.xcdatamodeld in Sources */,
 				65AC619E26D368260070043E /* DesignableButton.swift in Sources */,
 				65AC61B026D36E9D0070043E /* UIImageView+Kf.swift in Sources */,
 				65AC618A26D35D050070043E /* SplashViewController.swift in Sources */,
 				65AC61B426D36F590070043E /* SongTableViewController.swift in Sources */,
 				65AC613A26D354120070043E /* AppDelegate.swift in Sources */,
+				65AC61C726D382AE0070043E /* UserDataManager.swift in Sources */,
 				65AC61B226D36EE00070043E /* UIViewController+URL.swift in Sources */,
 				65AC61A926D369070070043E /* UIView+Animation.swift in Sources */,
 				65AC61A626D368A20070043E /* ShadowProtocol.swift in Sources */,
@@ -970,6 +1026,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		65AC61C026D378E40070043E /* UserDataStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				65AC61C126D378E40070043E /* UserDataStore.xcdatamodel */,
+			);
+			currentVersion = 65AC61C126D378E40070043E /* UserDataStore.xcdatamodel */;
+			path = UserDataStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65AC612E26D354120070043E /* Project object */;
 }
