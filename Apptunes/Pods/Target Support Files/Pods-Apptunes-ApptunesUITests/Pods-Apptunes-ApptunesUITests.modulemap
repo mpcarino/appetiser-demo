@@ -1,0 +1,6 @@
+framework module Pods_Apptunes_ApptunesUITests {
+  umbrella header "Pods-Apptunes-ApptunesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
