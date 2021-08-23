@@ -29,6 +29,18 @@ internal enum L10n {
         internal static let title = L10n.tr("Literals", "error.api.title")
       }
     }
+    internal enum Symbol {
+      /// 🔵
+      internal static let blueCircle = L10n.tr("Literals", "symbol.blueCircle")
+      /// ✅
+      internal static let check = L10n.tr("Literals", "symbol.check")
+      /// 🟢
+      internal static let greenCircle = L10n.tr("Literals", "symbol.greenCircle")
+      /// 🟠
+      internal static let orangeCircle = L10n.tr("Literals", "symbol.orangeCircle")
+      /// 🔴
+      internal static let redCircle = L10n.tr("Literals", "symbol.redCircle")
+    }
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

@@ -6,5 +6,13 @@
   
 */
 
+// MARK: - Emojis
+"symbol.check"                  = "✅";
+"symbol.blueCircle"             = "🔵";
+"symbol.greenCircle"            = "🟢";
+"symbol.orangeCircle"           = "🟠";
+"symbol.redCircle"              = "🔴";
+
+// MARK: - Errors
 "error.api.title"               = "Error Occured";
 "error.api.message"             = "Sorry, we are unable to process your request right now. Please try again.";
