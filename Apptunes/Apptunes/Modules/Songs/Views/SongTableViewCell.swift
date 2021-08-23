@@ -11,18 +11,20 @@ import Reusable
 
 class SongTableViewCell: UITableViewCell, NibReusable {
     // MARK: - Enums
+    enum Constant {
+        static let height: CGFloat = 84.0
+    }
 
     // MARK: - IB Outlets
-    @IBOutlet weak var artworkImageView: UIImageView!
-    @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var trackNameLabel: UILabel!
-    @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var trackPriceLabel: UILabel!
+    @IBOutlet private weak var artworkImageView: UIImageView!
+    @IBOutlet private weak var genreLabel: UILabel!
+    @IBOutlet private weak var trackNameLabel: UILabel!
+    @IBOutlet private weak var artistNameLabel: UILabel!
+    @IBOutlet private weak var trackPriceLabel: UILabel!
     
     // MARK: - Class Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         self.selectionStyle = .none
     }
     
