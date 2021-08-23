@@ -6,6 +6,30 @@ target 'Apptunes' do
   use_frameworks!
 
   # Pods for Apptunes
+  
+  # https://github.com/SwiftGen/SwiftGen
+  pod 'SwiftGen'
+  
+  # https://github.com/Moya/Moya
+  pod 'Moya'
+  
+  # https://github.com/mxcl/PromiseKit
+  pod "PromiseKit/CorePromise"
+  
+  # https://github.com/vhesener/Closures
+  pod 'Closures'
+  
+  # https://github.com/AliSoftware/Reusable
+  pod 'Reusable'
+  
+  # https://github.com/onevcat/Kingfisher
+  pod 'Kingfisher'
+  
+  # https://github.com/SnapKit/SnapKit
+  pod 'SnapKit'
+  
+  # https://github.com/hackiftekhar/IQKeyboardManager
+  pod 'IQKeyboardManager'
 
   target 'ApptunesTests' do
     inherit! :search_paths
