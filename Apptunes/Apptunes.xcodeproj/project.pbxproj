@@ -21,6 +21,7 @@
 		65AC617726D3580E0070043E /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617426D3580E0070043E /* Segues.swift */; };
 		65AC617B26D3591A0070043E /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617A26D3591A0070043E /* Requestable.swift */; };
 		65AC617E26D359CE0070043E /* MoyaItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617D26D359CE0070043E /* MoyaItunesService.swift */; };
+		65AC618126D35A4D0070043E /* ItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC618026D35A4D0070043E /* ItunesService.swift */; };
 		CEF515253B39C7B81EC68FC6 /* Pods_Apptunes_ApptunesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1088ABC16C5A606AD600A7 /* Pods_Apptunes_ApptunesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		65AC617426D3580E0070043E /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		65AC617A26D3591A0070043E /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		65AC617D26D359CE0070043E /* MoyaItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaItunesService.swift; sourceTree = "<group>"; };
+		65AC618026D35A4D0070043E /* ItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesService.swift; sourceTree = "<group>"; };
 		9E36507F78A588E57A620F9B /* Pods-ApptunesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptunesTests.release.xcconfig"; path = "Target Support Files/Pods-ApptunesTests/Pods-ApptunesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A37CB7CC1343D4994DBA21D5 /* Pods-Apptunes-ApptunesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes-ApptunesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Apptunes-ApptunesUITests/Pods-Apptunes-ApptunesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1500EE9E7D5BF6172B9D4F5 /* Pods-Apptunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes.release.xcconfig"; path = "Target Support Files/Pods-Apptunes/Pods-Apptunes.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		65AC617826D358E30070043E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				65AC617F26D35A340070043E /* APIServices */,
 				65AC617C26D3593C0070043E /* MoyaServices */,
 				65AC617926D359020070043E /* Requestable */,
 			);
@@ -203,6 +206,14 @@
 				65AC617D26D359CE0070043E /* MoyaItunesService.swift */,
 			);
 			path = MoyaServices;
+			sourceTree = "<group>";
+		};
+		65AC617F26D35A340070043E /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				65AC618026D35A4D0070043E /* ItunesService.swift */,
+			);
+			path = APIServices;
 			sourceTree = "<group>";
 		};
 		A54513727FBE722F505707B2 /* Pods */ = {
@@ -486,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AC618126D35A4D0070043E /* ItunesService.swift in Sources */,
 				65AC617B26D3591A0070043E /* Requestable.swift in Sources */,
 				65AC617526D3580E0070043E /* Strings.swift in Sources */,
 				65AC613A26D354120070043E /* AppDelegate.swift in Sources */,
