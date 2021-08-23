@@ -8,16 +8,29 @@
 import Foundation
 import UIKit
 import Closures
+import PromiseKit
+import SnapKit
 
 class SongTableViewController: UIViewController {
     // MARK: - Enums
     enum Section {
         case favorite
         case all
+        
+        var title: String {
+            switch self {
+            case .favorite: return "Favorites"
+            case .all: return "All"
+            }
+        }
     }
     
     // MARK: - Properties
+    private let itunesService = ItunesService()
     private let sections: [Section] = [.favorite, .all]
+    private var itunesTracks: [ItunesTrack] {
+        return UserDataManager.shared.itunesTracks
+    }
     
     // MARK: - IB Outlets
     @IBOutlet weak var songsTableView: UITableView!
@@ -31,11 +44,23 @@ class SongTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        updateTracks()
     }
     
     // MARK: - User Functions
     private func setupSongsTableView() {
         songsTableView.register(cellType: SongTableViewCell.self)
+        
+        for family in UIFont.familyNames {
+
+            let sName: String = family as String
+            print("family: \(sName)")
+                    
+            for name in UIFont.fontNames(forFamilyName: sName) {
+                print("name: \(name as String)")
+            }
+        }
         
         songsTableView.numberOfSectionsIn { [weak self] in
             guard let self = self else { return .zero }
@@ -45,7 +70,29 @@ class SongTableViewController: UIViewController {
         .numberOfRows { [weak self] _ in
             guard let self = self else { return .zero }
             
-            return 50
+            return self.itunesTracks.count
+        }
+        .heightForHeaderInSection { [weak self] _ in
+            return 64.0
+        }
+        .viewForHeaderInSection { [weak self] section in
+            guard let self = self else { return UIView() }
+            
+            let headerView = UIView()
+            headerView.backgroundColor = .white
+            
+            let headerLabel = UILabel()
+            headerLabel.text = self.sections[section].title
+            headerLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24.0)
+            
+            headerView.addSubview(headerLabel)
+            
+            headerLabel.snp.makeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.left.right.equalToSuperview().inset(16.0)
+            }
+         
+            return headerView
         }
         .heightForRowAt { [weak self] indexPath in
             guard let self = self else { return .zero }
@@ -56,6 +103,7 @@ class SongTableViewController: UIViewController {
             guard let self = self else { return UITableViewCell() }
             
             let cell = self.songsTableView.dequeueReusableCell(for: indexPath, cellType: SongTableViewCell.self)
+            cell.setup(with: self.itunesTracks[indexPath.row])
             
             return cell
         }
@@ -63,6 +111,17 @@ class SongTableViewController: UIViewController {
             guard let self = self else { return }
             
         }
+    }
+    
+    // MARK: - API Requests
+    private func updateTracks() {
+        itunesService.downloadTracks(completion: { [weak self] _ in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.songsTableView.reloadData()
+            }
+        })
     }
 }
 // MARK: - Extensions
