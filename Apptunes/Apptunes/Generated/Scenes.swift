@@ -17,6 +17,13 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum Splash: StoryboardType {
+    internal static let storyboardName = "Splash"
+
+    internal static let initialScene = InitialSceneType<Apptunes.SplashViewController>(storyboard: Splash.self)
+
+    internal static let splashViewController = SceneType<Apptunes.SplashViewController>(storyboard: Splash.self, identifier: "SplashViewController")
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 
