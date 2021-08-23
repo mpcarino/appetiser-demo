@@ -30,7 +30,10 @@ target 'Apptunes' do
   
   # https://github.com/hackiftekhar/IQKeyboardManager
   pod 'IQKeyboardManager'
-
+  
+  # https://github.com/SwiftyJSON/SwiftyJSON
+  pod 'SwiftyJSON'
+  
   target 'ApptunesTests' do
     inherit! :search_paths
     # Pods for testing
