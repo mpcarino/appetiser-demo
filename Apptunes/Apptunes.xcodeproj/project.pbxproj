@@ -33,7 +33,12 @@
 		65AC61A226D368830070043E /* RefreshableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61A126D368830070043E /* RefreshableViewProtocol.swift */; };
 		65AC61A426D368990070043E /* BorderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61A326D368990070043E /* BorderProtocol.swift */; };
 		65AC61A626D368A20070043E /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61A526D368A20070043E /* ShadowProtocol.swift */; };
-		65AC61A926D369070070043E /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61A826D369070070043E /* UIView+.swift */; };
+		65AC61A926D369070070043E /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61A826D369070070043E /* UIView+Animation.swift */; };
+		65AC61AB26D369850070043E /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65AC61AA26D369850070043E /* SongTableViewCell.xib */; };
+		65AC61AE26D36DDC0070043E /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61AD26D36DDC0070043E /* SongTableViewCell.swift */; };
+		65AC61B026D36E9D0070043E /* UIImageView+Kf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61AF26D36E9D0070043E /* UIImageView+Kf.swift */; };
+		65AC61B226D36EE00070043E /* UIViewController+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61B126D36EE00070043E /* UIViewController+URL.swift */; };
+		65AC61B426D36F590070043E /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC61B326D36F590070043E /* SongTableViewController.swift */; };
 		CEF515253B39C7B81EC68FC6 /* Pods_Apptunes_ApptunesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1088ABC16C5A606AD600A7 /* Pods_Apptunes_ApptunesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +95,12 @@
 		65AC61A126D368830070043E /* RefreshableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableViewProtocol.swift; sourceTree = "<group>"; };
 		65AC61A326D368990070043E /* BorderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderProtocol.swift; sourceTree = "<group>"; };
 		65AC61A526D368A20070043E /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
-		65AC61A826D369070070043E /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		65AC61A826D369070070043E /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		65AC61AA26D369850070043E /* SongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
+		65AC61AD26D36DDC0070043E /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		65AC61AF26D36E9D0070043E /* UIImageView+Kf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kf.swift"; sourceTree = "<group>"; };
+		65AC61B126D36EE00070043E /* UIViewController+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+URL.swift"; sourceTree = "<group>"; };
+		65AC61B326D36F590070043E /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
 		9E36507F78A588E57A620F9B /* Pods-ApptunesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptunesTests.release.xcconfig"; path = "Target Support Files/Pods-ApptunesTests/Pods-ApptunesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A37CB7CC1343D4994DBA21D5 /* Pods-Apptunes-ApptunesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes-ApptunesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Apptunes-ApptunesUITests/Pods-Apptunes-ApptunesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1500EE9E7D5BF6172B9D4F5 /* Pods-Apptunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes.release.xcconfig"; path = "Target Support Files/Pods-Apptunes/Pods-Apptunes.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,7 +296,9 @@
 		65AC618E26D360440070043E /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				65AC61AC26D3698A0070043E /* Views */,
 				65AC619026D360C40070043E /* Songs.storyboard */,
+				65AC61B326D36F590070043E /* SongTableViewController.swift */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -311,9 +323,20 @@
 		65AC61A726D368E50070043E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				65AC61A826D369070070043E /* UIView+.swift */,
+				65AC61A826D369070070043E /* UIView+Animation.swift */,
+				65AC61AF26D36E9D0070043E /* UIImageView+Kf.swift */,
+				65AC61B126D36EE00070043E /* UIViewController+URL.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		65AC61AC26D3698A0070043E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65AC61AA26D369850070043E /* SongTableViewCell.xib */,
+				65AC61AD26D36DDC0070043E /* SongTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A54513727FBE722F505707B2 /* Pods */ = {
@@ -451,6 +474,7 @@
 				65AC619126D360C40070043E /* Songs.storyboard in Resources */,
 				65AC614626D354140070043E /* LaunchScreen.storyboard in Resources */,
 				65AC616F26D355D10070043E /* APIs.strings in Resources */,
+				65AC61AB26D369850070043E /* SongTableViewCell.xib in Resources */,
 				65AC619326D361510070043E /* Movies.storyboard in Resources */,
 				65AC614326D354140070043E /* Assets.xcassets in Resources */,
 				65AC618D26D360000070043E /* Main.storyboard in Resources */,
@@ -608,11 +632,15 @@
 				65AC61A026D3682E0070043E /* DesignableView.swift in Sources */,
 				65AC61A226D368830070043E /* RefreshableViewProtocol.swift in Sources */,
 				65AC619E26D368260070043E /* DesignableButton.swift in Sources */,
+				65AC61B026D36E9D0070043E /* UIImageView+Kf.swift in Sources */,
 				65AC618A26D35D050070043E /* SplashViewController.swift in Sources */,
+				65AC61B426D36F590070043E /* SongTableViewController.swift in Sources */,
 				65AC613A26D354120070043E /* AppDelegate.swift in Sources */,
-				65AC61A926D369070070043E /* UIView+.swift in Sources */,
+				65AC61B226D36EE00070043E /* UIViewController+URL.swift in Sources */,
+				65AC61A926D369070070043E /* UIView+Animation.swift in Sources */,
 				65AC61A626D368A20070043E /* ShadowProtocol.swift in Sources */,
 				65AC617E26D359CE0070043E /* MoyaItunesService.swift in Sources */,
+				65AC61AE26D36DDC0070043E /* SongTableViewCell.swift in Sources */,
 				65AC617626D3580E0070043E /* Scenes.swift in Sources */,
 				65AC617726D3580E0070043E /* Segues.swift in Sources */,
 				65AC618426D35B0A0070043E /* StoryboardGenerateable.swift in Sources */,
