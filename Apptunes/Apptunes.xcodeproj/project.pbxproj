@@ -19,6 +19,7 @@
 		65AC617526D3580E0070043E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617226D3580E0070043E /* Strings.swift */; };
 		65AC617626D3580E0070043E /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617326D3580E0070043E /* Scenes.swift */; };
 		65AC617726D3580E0070043E /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617426D3580E0070043E /* Segues.swift */; };
+		65AC617B26D3591A0070043E /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617A26D3591A0070043E /* Requestable.swift */; };
 		CEF515253B39C7B81EC68FC6 /* Pods_Apptunes_ApptunesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1088ABC16C5A606AD600A7 /* Pods_Apptunes_ApptunesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		65AC617226D3580E0070043E /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		65AC617326D3580E0070043E /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
 		65AC617426D3580E0070043E /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		65AC617A26D3591A0070043E /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		9E36507F78A588E57A620F9B /* Pods-ApptunesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptunesTests.release.xcconfig"; path = "Target Support Files/Pods-ApptunesTests/Pods-ApptunesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A37CB7CC1343D4994DBA21D5 /* Pods-Apptunes-ApptunesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes-ApptunesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Apptunes-ApptunesUITests/Pods-Apptunes-ApptunesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1500EE9E7D5BF6172B9D4F5 /* Pods-Apptunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes.release.xcconfig"; path = "Target Support Files/Pods-Apptunes/Pods-Apptunes.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				65AC613926D354120070043E /* AppDelegate.swift */,
 				65AC614426D354140070043E /* LaunchScreen.storyboard */,
 				65AC614226D354140070043E /* Assets.xcassets */,
+				65AC617826D358E30070043E /* Network */,
 				65AC616A26D355B50070043E /* Resources */,
 				65AC617026D3567A0070043E /* Generated */,
 			);
@@ -173,6 +176,22 @@
 				65AC617226D3580E0070043E /* Strings.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		65AC617826D358E30070043E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				65AC617926D359020070043E /* Requestable */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		65AC617926D359020070043E /* Requestable */ = {
+			isa = PBXGroup;
+			children = (
+				65AC617A26D3591A0070043E /* Requestable.swift */,
+			);
+			path = Requestable;
 			sourceTree = "<group>";
 		};
 		A54513727FBE722F505707B2 /* Pods */ = {
@@ -456,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AC617B26D3591A0070043E /* Requestable.swift in Sources */,
 				65AC617526D3580E0070043E /* Strings.swift in Sources */,
 				65AC613A26D354120070043E /* AppDelegate.swift in Sources */,
 				65AC617626D3580E0070043E /* Scenes.swift in Sources */,
