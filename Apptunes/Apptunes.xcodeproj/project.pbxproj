@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		65AC614626D354140070043E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AC614426D354140070043E /* LaunchScreen.storyboard */; };
 		65AC615126D354140070043E /* ApptunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC615026D354140070043E /* ApptunesTests.swift */; };
 		65AC615C26D354140070043E /* ApptunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC615B26D354140070043E /* ApptunesUITests.swift */; };
+		65AC616D26D355C80070043E /* Literals.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65AC616C26D355C80070043E /* Literals.strings */; };
+		65AC616F26D355D10070043E /* APIs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65AC616E26D355D10070043E /* APIs.strings */; };
+		65AC617526D3580E0070043E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617226D3580E0070043E /* Strings.swift */; };
+		65AC617626D3580E0070043E /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617326D3580E0070043E /* Scenes.swift */; };
+		65AC617726D3580E0070043E /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC617426D3580E0070043E /* Segues.swift */; };
 		CEF515253B39C7B81EC68FC6 /* Pods_Apptunes_ApptunesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1088ABC16C5A606AD600A7 /* Pods_Apptunes_ApptunesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +56,11 @@
 		65AC615726D354140070043E /* ApptunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApptunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AC615B26D354140070043E /* ApptunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptunesUITests.swift; sourceTree = "<group>"; };
 		65AC615D26D354140070043E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65AC616C26D355C80070043E /* Literals.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Literals.strings; sourceTree = "<group>"; };
+		65AC616E26D355D10070043E /* APIs.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = APIs.strings; sourceTree = "<group>"; };
+		65AC617226D3580E0070043E /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		65AC617326D3580E0070043E /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
+		65AC617426D3580E0070043E /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		9E36507F78A588E57A620F9B /* Pods-ApptunesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptunesTests.release.xcconfig"; path = "Target Support Files/Pods-ApptunesTests/Pods-ApptunesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A37CB7CC1343D4994DBA21D5 /* Pods-Apptunes-ApptunesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes-ApptunesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Apptunes-ApptunesUITests/Pods-Apptunes-ApptunesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1500EE9E7D5BF6172B9D4F5 /* Pods-Apptunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes.release.xcconfig"; path = "Target Support Files/Pods-Apptunes/Pods-Apptunes.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +124,8 @@
 				65AC613926D354120070043E /* AppDelegate.swift */,
 				65AC614426D354140070043E /* LaunchScreen.storyboard */,
 				65AC614226D354140070043E /* Assets.xcassets */,
+				65AC616A26D355B50070043E /* Resources */,
+				65AC617026D3567A0070043E /* Generated */,
 			);
 			path = Apptunes;
 			sourceTree = "<group>";
@@ -136,6 +148,33 @@
 			path = ApptunesUITests;
 			sourceTree = "<group>";
 		};
+		65AC616A26D355B50070043E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65AC616B26D355B90070043E /* Strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		65AC616B26D355B90070043E /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				65AC616C26D355C80070043E /* Literals.strings */,
+				65AC616E26D355D10070043E /* APIs.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		65AC617026D3567A0070043E /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				65AC617326D3580E0070043E /* Scenes.swift */,
+				65AC617426D3580E0070043E /* Segues.swift */,
+				65AC617226D3580E0070043E /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		A54513727FBE722F505707B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +185,6 @@
 				14E4DEE126493BB4FF2D8120 /* Pods-ApptunesTests.debug.xcconfig */,
 				9E36507F78A588E57A620F9B /* Pods-ApptunesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -172,6 +210,7 @@
 				65AC613326D354120070043E /* Frameworks */,
 				65AC613426D354120070043E /* Resources */,
 				1FD95EB92142E198B2AE94ED /* [CP] Embed Pods Frameworks */,
+				65AC617126D357BA0070043E /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -269,7 +308,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				65AC614626D354140070043E /* LaunchScreen.storyboard in Resources */,
+				65AC616F26D355D10070043E /* APIs.strings in Resources */,
 				65AC614326D354140070043E /* Assets.xcassets in Resources */,
+				65AC616D26D355C80070043E /* Literals.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +347,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Apptunes/Pods-Apptunes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		65AC617126D357BA0070043E /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 		80E9E7C611F2BFEAFFB40CBC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -397,7 +456,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AC617526D3580E0070043E /* Strings.swift in Sources */,
 				65AC613A26D354120070043E /* AppDelegate.swift in Sources */,
+				65AC617626D3580E0070043E /* Scenes.swift in Sources */,
+				65AC617726D3580E0070043E /* Segues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

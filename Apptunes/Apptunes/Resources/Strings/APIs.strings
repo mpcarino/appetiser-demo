@@ -1,0 +1,10 @@
+/* 
+  APIs.strings
+  Apptunes
+
+  Created by Marwin Carino on 8/22/21.
+  
+*/
+
+"url.root"                      = "https://itunes.apple.com/";
+"path.search"                   = "search?term=star&amp;country=au&amp;media=movie&amp;all";
