@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func showTrackDetails(_ track: ItunesTrack) {
-        let viewController = DetailsViewController.generateFromStoryboard(input: .init(track: track), output: .init())
+    func showTrackDetails(input: DetailsViewController.Input, output: DetailsViewController.Output) {
+        let viewController = DetailsViewController.generateFromStoryboard(input: input, output: output)
         
         self.present(viewController, animated: true, completion: nil)
     }
