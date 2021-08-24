@@ -8,6 +8,7 @@
 import Foundation
 
 struct ItunesTrack: Codable {
+    let id: Int
     let type: String
     let kind: String
     let artistName: String
@@ -25,6 +26,7 @@ struct ItunesTrack: Codable {
     let longDescription: String
     
     enum CodingKeys: String, CodingKey {
+        case id = "trackId"
         case type = "wrapperType"
         case kind
         case artistName
@@ -45,6 +47,7 @@ struct ItunesTrack: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        id = try container.decodeIfPresent(Int.self, forKey: .id) ?? .zero
         type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
         kind = try container.decodeIfPresent(String.self, forKey: .kind) ?? ""
         artistName = try container.decodeIfPresent(String.self, forKey: .artistName) ?? "-"
