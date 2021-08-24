@@ -12,6 +12,9 @@ class DetailsViewController: UIViewController {
     // MARK: - Properties
     private var track: ItunesTrack?
     
+    // MARK: - Closures
+    private var wantsToUpdateFavoriteList: (() -> Void)?
+    
     // MARK: - IB Outlets
     @IBOutlet private weak var artworkImageView: UIImageView!
     @IBOutlet private weak var trackNameLabel: UILabel!
@@ -23,6 +26,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet private weak var closeButton: DesignableButton!
     @IBOutlet private weak var playPreviewButton: DesignableButton!
     @IBOutlet private weak var viewOnWebButton: DesignableButton!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -60,6 +64,14 @@ class DetailsViewController: UIViewController {
             
             self.openURL(track.trackViewUrl)
         }
+        
+        favoriteButton.onTap { [weak self] in
+            guard let self = self, let track = self.track else { return }
+            
+            UserDataManager.shared.addFavoriteTrack(track)
+            self.updateFavorite()
+            self.wantsToUpdateFavoriteList?()
+        }
     }
     
     private func setup() {
@@ -76,7 +88,22 @@ class DetailsViewController: UIViewController {
         playPreviewButton.isHidden = track.previewUrl.isEmpty
         playPreviewButton.isHidden = track.trackViewUrl.isEmpty
         
-        print(track.longDescription)
+        updateFavorite()
+    }
+    
+    private func updateFavorite() {
+        guard let track = track else { return }
+        
+        let isFavorite =  UserDataManager.shared.favoriteTracks.contains(where: {
+            if let id = $0.value(forKey: "id") as? Int32 {
+                return id == track.id
+            }
+            
+            return false
+        })
+        
+        let favoriteImage = isFavorite ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: favoriteImage), for: .normal)
     }
 }
 // MARK: - Extensions
@@ -85,11 +112,14 @@ extension DetailsViewController: StoryboardGenerateable {
         let track: ItunesTrack
     }
     
-    struct Output {}
+    struct Output {
+        let wantsToUpdateFavoriteList: (() -> Void)?
+    }
     
     static func generateFromStoryboard(input: Input, output: Output) -> DetailsViewController {
         let viewController = StoryboardScene.Details.detailsViewController.instantiate()
         viewController.track = input.track
+        viewController.wantsToUpdateFavoriteList = output.wantsToUpdateFavoriteList
 
         return viewController
     }
