@@ -96,14 +96,7 @@ class SongsViewController: UIViewController {
         .cellForRow { [weak self] indexPath in
             guard let self = self else { return UITableViewCell() }
             
-            var song: ItunesTrack
-            
-            switch self.sections[indexPath.section] {
-            case .favorite:
-                song = self.favoriteSongs[indexPath.row]
-            case .all:
-                song = self.songs[indexPath.row]
-            }
+            let song = self.getSong(using: indexPath)
             
             let isFavorite = self.favoriteSongObjects.contains(where: {
                 if let id = $0.value(forKey: "id") as? Int32 {
@@ -119,6 +112,7 @@ class SongsViewController: UIViewController {
             cell.wantsToFavorite = {
                 UserDataManager.shared.addFavoriteTrack(song)
                 self.updateFavoriteSongs()
+                self.songsTableView.reloadData()
             }
             
             return cell
@@ -126,9 +120,10 @@ class SongsViewController: UIViewController {
         .didSelectRowAt { [weak self] indexPath in
             guard let self = self else { return }
             
-            self.showTrackDetails(input: .init(track: self.songs[indexPath.row]),
+            self.showTrackDetails(input: .init(track: self.getSong(using: indexPath)),
                                   output: .init(wantsToUpdateFavoriteList: {
                                     self.updateFavoriteSongs()
+                                    self.songsTableView.reloadData()
                                   }))
         }
     }
@@ -141,8 +136,15 @@ class SongsViewController: UIViewController {
         } else {
             sections = [.favorite, .all]
         }
-        
-        songsTableView.reloadData()
+    }
+    
+    private func getSong(using indexPath: IndexPath) -> ItunesTrack {
+        switch self.sections[indexPath.section] {
+        case .favorite:
+            return self.favoriteSongs[indexPath.row]
+        case .all:
+            return self.songs[indexPath.row]
+        }
     }
     
     // MARK: - API Requests
@@ -152,6 +154,7 @@ class SongsViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.updateFavoriteSongs()
+                self.songsTableView.reloadData()
             }
         })
     }
