@@ -65,21 +65,36 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="E6D-Sh-pJY">
                                                 <rect key="frame" x="16" y="437.5" width="382" height="170"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="woV-gS-QqN">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axq-3Z-DPz">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="33.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAy-0l-VDs">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="14"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                                <color key="textColor" systemColor="systemBlueColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcK-Eb-TIw">
-                                                                <rect key="frame" x="0.0" y="14" width="382" height="19.5"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="woV-gS-QqN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="338" height="33.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAy-0l-VDs">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="14"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcK-Eb-TIw">
+                                                                        <rect key="frame" x="0.0" y="14" width="338" height="19.5"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qax-kK-YoH">
+                                                                <rect key="frame" x="338" y="0.0" width="44" height="33.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="44" id="xmQ-h2-wU1"/>
+                                                                </constraints>
+                                                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-Su-hv2">
@@ -230,6 +245,7 @@
                         <outlet property="artworkImageView" destination="HmB-bb-kcc" id="vjK-b0-fA2"/>
                         <outlet property="closeButton" destination="fbA-kA-NEc" id="Rzg-m7-EOZ"/>
                         <outlet property="collectionNameLabel" destination="mmR-jA-LQ0" id="zik-Lr-OGg"/>
+                        <outlet property="favoriteButton" destination="qax-kK-YoH" id="xEA-MT-q8A"/>
                         <outlet property="genreLabel" destination="eLI-97-2in" id="zCI-3R-jf5"/>
                         <outlet property="longDescriptionLabel" destination="ZAd-EE-kyB" id="fEw-wP-eOX"/>
                         <outlet property="playPreviewButton" destination="1hX-aX-KL5" id="nlU-5i-YHO"/>
@@ -256,6 +272,7 @@
     </designables>
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
@@ -263,6 +280,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
