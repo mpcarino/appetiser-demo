@@ -21,7 +21,7 @@ class MovieTableViewCell: UITableViewCell, NibReusable {
         let layout = UICollectionViewFlowLayout()
       
         layout.itemSize = CGSize(width: Constant.width, height: Constant.height)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 12.0, bottom: 0, right: 12.0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10.0, bottom: 0, right: 10.0)
         layout.minimumInteritemSpacing = .zero
         layout.minimumLineSpacing = .zero
         layout.scrollDirection = .horizontal
