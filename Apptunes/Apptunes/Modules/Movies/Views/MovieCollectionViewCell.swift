@@ -43,6 +43,7 @@ class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
     }
     
     // MARK: - User Functions
+    // Update cell UI with track data
     func setup(with movie: ItunesTrack) {
         artworkImageView.setKfImage(imageURL: movie.artworkLargeUrl)
         trackNameLabel.text = movie.trackName

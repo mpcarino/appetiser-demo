@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Used for generating specific view controller from a storyboard
 protocol StoryboardGenerateable {
     associatedtype Input
     associatedtype Output

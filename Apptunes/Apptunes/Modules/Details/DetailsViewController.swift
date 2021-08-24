@@ -49,7 +49,7 @@ class DetailsViewController: UIViewController {
     private func setupButtonActions() {
         closeButton.onTap { [weak self] in
             guard let self = self else { return }
-
+            
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -74,6 +74,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    // Update details UI with track data
     private func setup() {
         guard let track = track else { return }
         
@@ -83,7 +84,7 @@ class DetailsViewController: UIViewController {
         artistNameLabel.text = track.artistName
         collectionNameLabel.text = track.collectionName
         trackPriceLabel.text = "\(track.currency) \(track.trackPrice)"
-        longDescriptionLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        longDescriptionLabel.text = track.longDescription.isEmpty ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." : track.longDescription
         
         playPreviewButton.isHidden = track.previewUrl.isEmpty
         playPreviewButton.isHidden = track.trackViewUrl.isEmpty
@@ -91,6 +92,7 @@ class DetailsViewController: UIViewController {
         updateFavorite()
     }
     
+    // Update favorite button UI
     private func updateFavorite() {
         guard let track = track else { return }
         
@@ -120,7 +122,7 @@ extension DetailsViewController: StoryboardGenerateable {
         let viewController = StoryboardScene.Details.detailsViewController.instantiate()
         viewController.track = input.track
         viewController.wantsToUpdateFavoriteList = output.wantsToUpdateFavoriteList
-
+        
         return viewController
     }
 }

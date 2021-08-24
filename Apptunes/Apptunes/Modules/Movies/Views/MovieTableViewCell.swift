@@ -44,6 +44,7 @@ class MovieTableViewCell: UITableViewCell, NibReusable {
     }
     
     // MARK: - User Functions
+    // Setup collection of movies under a specific genre
     func setup(with movies: [ItunesTrack]) {
         collectionView.register(cellType: MovieCollectionViewCell.self)
         

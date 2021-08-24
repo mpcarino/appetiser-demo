@@ -30,6 +30,7 @@ extension Requestable {
             .init(logOptions: .formatRequestAscURL))
     }
     
+    // Perform call to API target then return API response as 'success' or 'failed' an error
     @discardableResult
     func callBasicAPIRequest<T: TargetType> (provider: MoyaProvider<T>, target: T) -> EmptyPromise {
         return EmptyPromise { seal in
@@ -38,16 +39,19 @@ extension Requestable {
                 case .success(_):
                     Logger.log(type: .success, title: "API", message: "Successful basic API request: \(target.baseURL)\(target.path)")
                     
+                    // Return success
                     seal.fulfill(())
                 case .failure(let error):
                     Logger.log(type: .failure, title: "API", message: "Failed basic API request: \(target)")
                 
+                    // Return failure with error
                     seal.reject(error)
                 }
             }
         }
     }
     
+    // Perform call to API target then return API response as 'success' with decoded data or 'failed' with an error
     @discardableResult
     func callAPIRequest<T: TargetType, C: Codable> (provider: MoyaProvider<T>, target: T, response: C.Type, at keyPath: String? = nil) -> Promise<C> {
         return Promise<C> { seal in
@@ -59,15 +63,18 @@ extension Requestable {
                     do {
                         let decodedResponse = try response.map(C.self, atKeyPath: keyPath)
                         
+                        // Return success with decoded data
                         seal.fulfill(decodedResponse)
                     } catch(let error) {
                         Logger.log(type: .failure, title: "JSON Mapping", message: "Failed JSON mapping: \(target) - \(type(of: C.self))")
                         
+                        // Return failure with error
                         seal.reject(error)
                     }
                 case .failure(let error):
                     Logger.log(type: .failure, message: "Failed API request: \(target)")
                     
+                    // Return failure with error
                     seal.reject(error)
                 }
             }

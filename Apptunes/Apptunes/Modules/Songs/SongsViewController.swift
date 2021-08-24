@@ -148,6 +148,7 @@ class SongsViewController: UIViewController {
     }
     
     // MARK: - API Requests
+    // Fetch data from API then update favorite songs and tableview data
     private func updateTracks() {
         itunesService.downloadTracks(completion: { [weak self] _ in
             guard let self = self else { return }

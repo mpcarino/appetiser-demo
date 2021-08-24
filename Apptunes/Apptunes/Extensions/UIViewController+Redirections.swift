@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    // Present details screen with a specific track data
     func showTrackDetails(input: DetailsViewController.Input, output: DetailsViewController.Output) {
         let viewController = DetailsViewController.generateFromStoryboard(input: input, output: output)
         

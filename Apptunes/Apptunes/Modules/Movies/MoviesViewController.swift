@@ -77,6 +77,7 @@ class MoviesViewController: UIViewController {
     }
     
     // MARK: - API Requests
+    // Fetch data from API then update tableview data
     private func updateTracks() {
         itunesService.downloadTracks(completion: { [weak self] _ in
             guard let self = self else { return }
@@ -84,10 +85,12 @@ class MoviesViewController: UIViewController {
             DispatchQueue.main.async {
                 var sectionsSet: Set<String> = []
                 
+                // Get movie genres to be used as sections
                 for movie in self.movies {
                     sectionsSet.insert(movie.primaryGenreName)
                 }
                 
+                // Create array of movie genres from section set then sort alphabetically
                 self.sections = Array(sectionsSet)
                 self.sections.sort()
                 
