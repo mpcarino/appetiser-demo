@@ -9,6 +9,7 @@ import Foundation
 
 struct ItunesTrack: Codable {
     let type: String
+    let kind: String
     let artistName: String
     let collectionName: String
     let trackName: String
@@ -25,6 +26,7 @@ struct ItunesTrack: Codable {
     
     enum CodingKeys: String, CodingKey {
         case type = "wrapperType"
+        case kind
         case artistName
         case collectionName
         case trackName
@@ -44,6 +46,7 @@ struct ItunesTrack: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
+        kind = try container.decodeIfPresent(String.self, forKey: .kind) ?? ""
         artistName = try container.decodeIfPresent(String.self, forKey: .artistName) ?? ""
         collectionName = try container.decodeIfPresent(String.self, forKey: .collectionName) ?? ""
         trackName = try container.decodeIfPresent(String.self, forKey: .trackName) ?? ""
@@ -57,5 +60,11 @@ struct ItunesTrack: Codable {
         artworkLargeUrl = try container.decodeIfPresent(String.self, forKey: .artworkLargeUrl) ?? ""
         primaryGenreName = try container.decodeIfPresent(String.self, forKey: .primaryGenreName) ?? ""
         longDescription = try container.decodeIfPresent(String.self, forKey: .longDescription) ?? ""
+    }
+}
+
+extension ItunesTrack {
+    var officialKind: ItunesTrackKind? {
+        return ItunesTrackKind(rawValue: kind)
     }
 }
