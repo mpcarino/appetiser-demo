@@ -1,5 +1,5 @@
 //
-//  SongTableViewController.swift
+//  SongsViewController.swift
 //  Apptunes
 //
 //  Created by Marwin Carino on 8/22/21.
@@ -11,7 +11,7 @@ import Closures
 import PromiseKit
 import SnapKit
 
-class SongTableViewController: UIViewController {
+class SongsViewController: UIViewController {
     // MARK: - Enums
     enum Section {
         case favorite
@@ -115,12 +115,12 @@ class SongTableViewController: UIViewController {
     }
 }
 // MARK: - Extensions
-extension SongTableViewController: StoryboardGenerateable {
+extension SongsViewController: StoryboardGenerateable {
     struct Input {}
     struct Output {}
 
-    static func generateFromStoryboard(input: Input, output: Output) -> SongTableViewController {
-        let viewController = StoryboardScene.Songs.songTableViewController.instantiate()
+    static func generateFromStoryboard(input: Input, output: Output) -> SongsViewController {
+        let viewController = StoryboardScene.Songs.songsViewController.instantiate()
         
         return viewController
     }
