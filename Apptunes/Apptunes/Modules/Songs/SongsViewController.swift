@@ -62,31 +62,15 @@ class SongsViewController: UIViewController {
             
             return self.songs.count
         }
-        .heightForHeaderInSection { [weak self] _ in
+        .heightForHeaderInSection { _ in
             return 64.0
         }
         .viewForHeaderInSection { [weak self] section in
             guard let self = self else { return UIView() }
-            
-            let headerView = UIView()
-            headerView.backgroundColor = .white
-            
-            let headerLabel = UILabel()
-            headerLabel.text = self.sections[section].title
-            headerLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24.0)
-            
-            headerView.addSubview(headerLabel)
-            
-            headerLabel.snp.makeConstraints { make in
-                make.top.bottom.equalToSuperview()
-                make.left.right.equalToSuperview().inset(16.0)
-            }
-         
-            return headerView
+        
+            return self.songsTableView.createHeaderView(with: self.sections[section].title)
         }
-        .heightForRowAt { [weak self] indexPath in
-            guard let self = self else { return .zero }
-            
+        .heightForRowAt { indexPath in
             return SongTableViewCell.Constant.height
         }
         .cellForRow { [weak self] indexPath in
@@ -100,6 +84,7 @@ class SongsViewController: UIViewController {
         .didSelectRowAt { [weak self] indexPath in
             guard let self = self else { return }
             
+            print("Did select song: ", self.songs[indexPath.row])
         }
     }
     
