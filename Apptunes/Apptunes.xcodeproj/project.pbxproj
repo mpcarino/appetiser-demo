@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F1D10771C8CBAAC404D1E2D /* Pods_Apptunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9C10A4F7AFB4CBE7798BA5 /* Pods_Apptunes.framework */; };
 		6109DEBEBC44278A841A8555 /* Pods_ApptunesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E441BC1C678A9B29B9077F7 /* Pods_ApptunesTests.framework */; };
+		6573A1CC26D4BE1D00F55A28 /* ItunesTrackKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6573A1CB26D4BE1D00F55A28 /* ItunesTrackKind.swift */; };
 		65AC613A26D354120070043E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AC613926D354120070043E /* AppDelegate.swift */; };
 		65AC614326D354140070043E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65AC614226D354140070043E /* Assets.xcassets */; };
 		65AC614626D354140070043E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AC614426D354140070043E /* LaunchScreen.storyboard */; };
@@ -69,6 +70,7 @@
 		1E441BC1C678A9B29B9077F7 /* Pods_ApptunesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApptunesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57697DFF866A09C9359646AF /* Pods-Apptunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apptunes.debug.xcconfig"; path = "Target Support Files/Pods-Apptunes/Pods-Apptunes.debug.xcconfig"; sourceTree = "<group>"; };
 		5A9C10A4F7AFB4CBE7798BA5 /* Pods_Apptunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apptunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6573A1CB26D4BE1D00F55A28 /* ItunesTrackKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesTrackKind.swift; sourceTree = "<group>"; };
 		65AC613626D354120070043E /* Apptunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apptunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AC613926D354120070043E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65AC614226D354140070043E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				65AC61B626D374AB0070043E /* Responses */,
+				6573A1CB26D4BE1D00F55A28 /* ItunesTrackKind.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				65AC61A926D369070070043E /* UIView+Animation.swift in Sources */,
 				65AC61A626D368A20070043E /* ShadowProtocol.swift in Sources */,
 				65AC617E26D359CE0070043E /* MoyaItunesService.swift in Sources */,
+				6573A1CC26D4BE1D00F55A28 /* ItunesTrackKind.swift in Sources */,
 				65AC61AE26D36DDC0070043E /* SongTableViewCell.swift in Sources */,
 				65AC617626D3580E0070043E /* Scenes.swift in Sources */,
 				65AC617726D3580E0070043E /* Segues.swift in Sources */,
@@ -868,7 +872,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Apptunes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -877,6 +883,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpsc.Apptunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -888,7 +895,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Apptunes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -897,6 +906,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpsc.Apptunes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
