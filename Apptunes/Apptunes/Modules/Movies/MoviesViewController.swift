@@ -100,10 +100,10 @@ class MoviesViewController: UIViewController {
 extension MoviesViewController: StoryboardGenerateable {
     struct Input {}
     struct Output {}
-
+    
     static func generateFromStoryboard(input: Input, output: Output) -> MoviesViewController {
         let viewController = StoryboardScene.Movies.moviesViewController.instantiate()
-
+        
         return viewController
     }
 }
