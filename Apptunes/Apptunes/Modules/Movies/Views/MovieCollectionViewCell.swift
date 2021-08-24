@@ -43,10 +43,10 @@ class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
     }
     
     // MARK: - User Functions
-    func setup(with itunesTrack: ItunesTrack) {
-        artworkImageView.setKfImage(imageURL: itunesTrack.artworkLargeUrl)
-        trackNameLabel.text = itunesTrack.trackName.isEmpty ? "-" : itunesTrack.trackName
-        artistNameLabel.text = itunesTrack.artistName.isEmpty ? "-" : itunesTrack.artistName
-        trackPriceLabel.text = "\(itunesTrack.currency) \(itunesTrack.trackPrice)"
+    func setup(with movie: ItunesTrack) {
+        artworkImageView.setKfImage(imageURL: movie.artworkLargeUrl)
+        trackNameLabel.text = movie.trackName
+        artistNameLabel.text = movie.artistName
+        trackPriceLabel.text = "\(movie.currency) \(movie.trackPrice)"
     }
 }
