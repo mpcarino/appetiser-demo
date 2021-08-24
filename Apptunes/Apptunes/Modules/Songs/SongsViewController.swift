@@ -63,7 +63,7 @@ class SongsViewController: UIViewController {
             return self.songs.count
         }
         .heightForHeaderInSection { _ in
-            return 64.0
+            return 44.0
         }
         .viewForHeaderInSection { [weak self] section in
             guard let self = self else { return UIView() }
