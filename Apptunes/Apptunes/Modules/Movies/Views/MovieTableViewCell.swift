@@ -39,12 +39,12 @@ class MovieTableViewCell: UITableViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        
+        collectionView.setCollectionViewLayout(flowLayout, animated: true)
     }
     
     // MARK: - User Functions
     func setup(with movies: [ItunesTrack]) {
-        collectionView.setCollectionViewLayout(flowLayout, animated: true)
-        
         collectionView.register(cellType: MovieCollectionViewCell.self)
         
         collectionView.numberOfItemsInSection { _ in
