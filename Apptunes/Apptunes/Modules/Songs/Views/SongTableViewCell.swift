@@ -15,6 +15,9 @@ class SongTableViewCell: UITableViewCell, NibReusable {
         static let height: CGFloat = 84.0
     }
 
+    // MARK: - Properties
+    private let shouldAnimateWhenTapped = true
+    
     // MARK: - IB Outlets
     @IBOutlet private weak var artworkImageView: UIImageView!
     @IBOutlet private weak var genreLabel: UILabel!
@@ -28,12 +31,24 @@ class SongTableViewCell: UITableViewCell, NibReusable {
         self.selectionStyle = .none
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        guard shouldAnimateWhenTapped else { return }
+        self.animateTouchDown()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        guard shouldAnimateWhenTapped else { return }
+        self.animateTouchUp()
+    }
+    
     // MARK: - User Functions
-    func setup(with itunesTrack: ItunesTrack) {
-        artworkImageView.setKfImage(imageURL: itunesTrack.artworkMediumUrl)
-        genreLabel.text = itunesTrack.primaryGenreName.isEmpty ? "-" : itunesTrack.primaryGenreName
-        trackNameLabel.text = itunesTrack.trackName.isEmpty ? "-" : itunesTrack.trackName
-        artistNameLabel.text = itunesTrack.artistName.isEmpty ? "-" : itunesTrack.artistName
-        trackPriceLabel.text = "\(itunesTrack.currency) \(itunesTrack.trackPrice)"
+    func setup(with song: ItunesTrack) {
+        artworkImageView.setKfImage(imageURL: song.artworkMediumUrl)
+        genreLabel.text = song.primaryGenreName.isEmpty ? "-" : song.primaryGenreName
+        trackNameLabel.text = song.trackName.isEmpty ? "-" : song.trackName
+        artistNameLabel.text = song.artistName.isEmpty ? "-" : song.artistName
+        trackPriceLabel.text = "\(song.currency) \(song.trackPrice)"
     }
 }
