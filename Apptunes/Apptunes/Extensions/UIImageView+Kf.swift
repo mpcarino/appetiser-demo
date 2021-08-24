@@ -12,7 +12,10 @@ import Kingfisher
 extension UIImageView {
     func setKfImage(imageURL: String, shouldHideIfNil: Bool = false) {
         if let url = URL(string: imageURL) {
-            self.kf.setImage(with: url)
+            self.kf.setImage(with: url,
+                             placeholder: UIImage(named: "imgPlaceholder"),
+                             options: nil,
+                             completionHandler: nil)
         } else {
             self.image = nil
             
