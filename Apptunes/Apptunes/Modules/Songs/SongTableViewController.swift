@@ -28,8 +28,8 @@ class SongTableViewController: UIViewController {
     // MARK: - Properties
     private let itunesService = ItunesService()
     private let sections: [Section] = [.favorite, .all]
-    private var itunesTracks: [ItunesTrack] {
-        return UserDataManager.shared.itunesTracks
+    private var songs: [ItunesTrack] {
+        return UserDataManager.shared.songs
     }
     
     // MARK: - IB Outlets
@@ -52,16 +52,6 @@ class SongTableViewController: UIViewController {
     private func setupSongsTableView() {
         songsTableView.register(cellType: SongTableViewCell.self)
         
-        for family in UIFont.familyNames {
-
-            let sName: String = family as String
-            print("family: \(sName)")
-                    
-            for name in UIFont.fontNames(forFamilyName: sName) {
-                print("name: \(name as String)")
-            }
-        }
-        
         songsTableView.numberOfSectionsIn { [weak self] in
             guard let self = self else { return .zero }
             
@@ -70,7 +60,7 @@ class SongTableViewController: UIViewController {
         .numberOfRows { [weak self] _ in
             guard let self = self else { return .zero }
             
-            return self.itunesTracks.count
+            return self.songs.count
         }
         .heightForHeaderInSection { [weak self] _ in
             return 64.0
@@ -103,7 +93,7 @@ class SongTableViewController: UIViewController {
             guard let self = self else { return UITableViewCell() }
             
             let cell = self.songsTableView.dequeueReusableCell(for: indexPath, cellType: SongTableViewCell.self)
-            cell.setup(with: self.itunesTracks[indexPath.row])
+            cell.setup(with: self.songs[indexPath.row])
             
             return cell
         }
