@@ -13,18 +13,33 @@
         <!--Movies-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesViewController" id="Y6W-OH-hqX" customClass="MoviesViewController" customModule="Apptunes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lJc-eI-O8K">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lJc-eI-O8K" secondAttribute="bottom" id="3jn-wZ-GLT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lJc-eI-O8K" secondAttribute="trailing" id="Vsy-fI-d4H"/>
+                            <constraint firstItem="lJc-eI-O8K" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XWd-s1-VyB"/>
+                            <constraint firstItem="lJc-eI-O8K" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="rjE-RQ-yhx"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Movies" id="E6S-eQ-L7J">
                         <imageReference key="image" image="tv" catalog="system" symbolScale="large"/>
                         <imageReference key="selectedImage" image="tv" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="moviesTableView" destination="lJc-eI-O8K" id="Rdd-Jo-uBQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
