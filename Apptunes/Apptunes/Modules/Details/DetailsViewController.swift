@@ -74,7 +74,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    // Update details UI with track data
+    /// Update details UI with track data
     private func setup() {
         guard let track = track else { return }
         
@@ -92,7 +92,7 @@ class DetailsViewController: UIViewController {
         updateFavorite()
     }
     
-    // Update favorite button UI
+    /// Update favorite button UI
     private func updateFavorite() {
         guard let track = track else { return }
         

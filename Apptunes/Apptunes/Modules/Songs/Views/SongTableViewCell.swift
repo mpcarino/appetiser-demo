@@ -64,7 +64,7 @@ class SongTableViewCell: UITableViewCell, NibReusable {
         }
     }
     
-    // Update cell UI with track data
+    /// Update cell UI with track data
     func setup(with song: ItunesTrack, isFavorite: Bool = false) {
         artworkImageView.setKfImage(imageURL: song.artworkMediumUrl)
         genreLabel.text = song.primaryGenreName

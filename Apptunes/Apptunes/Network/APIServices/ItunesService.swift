@@ -11,7 +11,7 @@ import PromiseKit
 import SwiftyJSON
 
 struct ItunesService: Requestable {
-    // Get data from search API, received as JSON data
+    /// Get data from search API, received as JSON data
     func getTracks() -> Promise<[ItunesTrack]> {
         let provider = MoyaProvider<MoyaItunesService>(plugins: [curlPlugin])
         let target = MoyaItunesService.search
@@ -19,7 +19,7 @@ struct ItunesService: Requestable {
         return callAPIRequest(provider: provider, target: target, response: [ItunesTrack].self, at: "results")
     }
 
-    // Get data from search API, received as .txt file then convert contents into JSON data
+    /// Get data from search API, received as .txt file then convert contents into JSON data
     func downloadTracks(completion: @escaping ([ItunesTrack]) -> Void) {
         if let url = URL(string: L10n.APIs.Url.root + L10n.APIs.Path.search) {
             DispatchQueue.global().async {

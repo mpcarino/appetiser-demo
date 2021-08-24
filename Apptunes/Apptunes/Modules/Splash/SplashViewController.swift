@@ -23,7 +23,7 @@ class SplashViewController: UIViewController {
     }
     
     // MARK: - User Functions
-    // Setup app main controller after displaying splash screen
+    /// Setup app main controller after displaying splash screen
     private func setupMainControllers() {
         let viewController = StoryboardScene.Main.initialScene.instantiate()
         

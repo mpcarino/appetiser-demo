@@ -77,7 +77,7 @@ class MoviesViewController: UIViewController {
     }
     
     // MARK: - API Requests
-    // Fetch data from API then update tableview data
+    /// Fetch data from API then update tableview data
     private func updateTracks() {
         itunesService.downloadTracks(completion: { [weak self] _ in
             guard let self = self else { return }

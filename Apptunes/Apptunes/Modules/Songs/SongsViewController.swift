@@ -128,6 +128,7 @@ class SongsViewController: UIViewController {
         }
     }
     
+    /// Update favorite songs and sections
     private func updateFavoriteSongs() {
         favoriteSongObjects = UserDataManager.shared.favoriteTracks
         
@@ -138,6 +139,7 @@ class SongsViewController: UIViewController {
         }
     }
     
+    /// Get specific song from specific section
     private func getSong(using indexPath: IndexPath) -> ItunesTrack {
         switch self.sections[indexPath.section] {
         case .favorite:
@@ -148,7 +150,7 @@ class SongsViewController: UIViewController {
     }
     
     // MARK: - API Requests
-    // Fetch data from API then update favorite songs and tableview data
+    /// Fetch data from API then update favorite songs and tableview data
     private func updateTracks() {
         itunesService.downloadTracks(completion: { [weak self] _ in
             guard let self = self else { return }

@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    // Fetch image from a URL and put a placeholder while loading
+    /// Fetch image from a URL and put a placeholder while loading
     func setKfImage(imageURL: String, shouldHideIfNil: Bool = false) {
         let imagePlaceholder = UIImage(named: "imgPlaceholder")
         

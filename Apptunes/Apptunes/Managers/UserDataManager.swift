@@ -18,17 +18,17 @@ class UserDataManager {
     
     var itunesTracks: [ItunesTrack] = []
     
-    // Songs from all tracks data
+    /// Songs from all tracks data
     var songs: [ItunesTrack] {
         return self.itunesTracks.filter { $0.officialKind == .song }
     }
     
-    // Movies from all tracks data
+    /// Movies from all tracks data
     var movies: [ItunesTrack] {
         return self.itunesTracks.filter { $0.officialKind == .movie }
     }
     
-    // Favorite tracks saved from CoreData model
+    /// Favorite tracks saved from CoreData model
     var favoriteTracks: [NSManagedObject] {
         return self.getFavoriteTracks()
     }
@@ -47,7 +47,7 @@ class UserDataManager {
     
     
     // MARK: - User Functions
-    // Fetch favorite tracks saved in CoreData
+    /// Fetch favorite tracks saved in CoreData
     func getFavoriteTracks() -> [NSManagedObject] {
         let context = persistentContainer.viewContext
         
@@ -64,7 +64,7 @@ class UserDataManager {
         }
     }
     
-    // Fetch specific favorite track saved in CoreData
+    /// Fetch specific favorite track saved in CoreData
     func getFavoriteTrack(id: Int32) -> [NSManagedObject] {
         let context = persistentContainer.viewContext
         
@@ -83,7 +83,7 @@ class UserDataManager {
         return results
     }
     
-    // If track is not existing, save. Else, delete
+    /// If track is not existing, save. Else, delete
     func addFavoriteTrack(_ track: ItunesTrack) {
         let context = persistentContainer.viewContext
         
@@ -108,7 +108,7 @@ class UserDataManager {
         saveContext()
     }
     
-    // Save changes in CoreData context if it has any
+    /// Save changes in CoreData context if it has any
     func saveContext () {
         let context = persistentContainer.viewContext
         
