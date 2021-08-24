@@ -30,9 +30,9 @@ internal enum StoryboardScene {
   internal enum Songs: StoryboardType {
     internal static let storyboardName = "Songs"
 
-    internal static let initialScene = InitialSceneType<Apptunes.SongTableViewController>(storyboard: Songs.self)
+    internal static let initialScene = InitialSceneType<Apptunes.SongsViewController>(storyboard: Songs.self)
 
-    internal static let songTableViewController = SceneType<Apptunes.SongTableViewController>(storyboard: Songs.self, identifier: "SongTableViewController")
+    internal static let songsViewController = SceneType<Apptunes.SongsViewController>(storyboard: Songs.self, identifier: "SongsViewController")
   }
   internal enum Splash: StoryboardType {
     internal static let storyboardName = "Splash"
