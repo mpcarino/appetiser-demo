@@ -36,6 +36,12 @@ class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
         self.animateTouchUp()
     }
     
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        guard shouldAnimateWhenTapped else { return }
+        self.animateTouchUp()
+    }
+    
     // MARK: - User Functions
     func setup(with itunesTrack: ItunesTrack) {
         artworkImageView.setKfImage(imageURL: itunesTrack.artworkLargeUrl)
