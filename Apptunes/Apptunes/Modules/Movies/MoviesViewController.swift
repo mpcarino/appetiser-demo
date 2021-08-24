@@ -69,7 +69,7 @@ class MoviesViewController: UIViewController {
             cell.setup(with: movies)
             
             cell.didSelectMovie = { movie in
-                print("Did select movie: ", movie)
+                self.showTrackDetails(movie)
             }
             
             return cell

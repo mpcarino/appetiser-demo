@@ -84,7 +84,7 @@ class SongsViewController: UIViewController {
         .didSelectRowAt { [weak self] indexPath in
             guard let self = self else { return }
             
-            print("Did select song: ", self.songs[indexPath.row])
+            self.showTrackDetails(self.songs[indexPath.row])
         }
     }
     
