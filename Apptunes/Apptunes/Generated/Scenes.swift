@@ -25,7 +25,9 @@ internal enum StoryboardScene {
   internal enum Movies: StoryboardType {
     internal static let storyboardName = "Movies"
 
-    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Movies.self)
+    internal static let initialScene = InitialSceneType<Apptunes.MoviesViewController>(storyboard: Movies.self)
+
+    internal static let moviesViewController = SceneType<Apptunes.MoviesViewController>(storyboard: Movies.self, identifier: "MoviesViewController")
   }
   internal enum Songs: StoryboardType {
     internal static let storyboardName = "Songs"
