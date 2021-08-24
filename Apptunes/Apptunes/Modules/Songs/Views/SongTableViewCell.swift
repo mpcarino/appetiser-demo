@@ -31,9 +31,9 @@ class SongTableViewCell: UITableViewCell, NibReusable {
     // MARK: - User Functions
     func setup(with itunesTrack: ItunesTrack) {
         artworkImageView.setKfImage(imageURL: itunesTrack.artworkMediumUrl)
-        genreLabel.text = itunesTrack.primaryGenreName
-        trackNameLabel.text = itunesTrack.trackName
-        artistNameLabel.text = itunesTrack.artistName
+        genreLabel.text = itunesTrack.primaryGenreName.isEmpty ? "-" : itunesTrack.primaryGenreName
+        trackNameLabel.text = itunesTrack.trackName.isEmpty ? "-" : itunesTrack.trackName
+        artistNameLabel.text = itunesTrack.artistName.isEmpty ? "-" : itunesTrack.artistName
         trackPriceLabel.text = "\(itunesTrack.currency) \(itunesTrack.trackPrice)"
     }
 }
