@@ -21,6 +21,11 @@ class DesignableButton: UIButton, RefreshableViewProtocol {
         self.animateTouchUp()
     }
     
+    override func cancelTracking(with event: UIEvent?) {
+        guard animatesWhenTapped else { return }
+        self.animateTouchUp()
+    }
+    
     @IBInspectable
     var animatesWhenTapped: Bool = true
     
