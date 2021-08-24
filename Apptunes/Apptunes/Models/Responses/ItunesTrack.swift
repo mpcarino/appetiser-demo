@@ -47,18 +47,18 @@ struct ItunesTrack: Codable {
         
         type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
         kind = try container.decodeIfPresent(String.self, forKey: .kind) ?? ""
-        artistName = try container.decodeIfPresent(String.self, forKey: .artistName) ?? ""
-        collectionName = try container.decodeIfPresent(String.self, forKey: .collectionName) ?? ""
-        trackName = try container.decodeIfPresent(String.self, forKey: .trackName) ?? ""
+        artistName = try container.decodeIfPresent(String.self, forKey: .artistName) ?? "-"
+        collectionName = try container.decodeIfPresent(String.self, forKey: .collectionName) ?? "-"
+        trackName = try container.decodeIfPresent(String.self, forKey: .trackName) ?? "-"
         trackViewUrl = try container.decodeIfPresent(String.self, forKey: .trackViewUrl) ?? ""
         previewUrl = try container.decodeIfPresent(String.self, forKey: .previewUrl) ?? ""
         trackPrice = try container.decodeIfPresent(Double.self, forKey: .trackPrice) ?? .zero
-        currency = try container.decodeIfPresent(String.self, forKey: .currency) ?? ""
-        country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
+        currency = try container.decodeIfPresent(String.self, forKey: .currency) ?? "-"
+        country = try container.decodeIfPresent(String.self, forKey: .country) ?? "-"
         artworkSmallUrl = try container.decodeIfPresent(String.self, forKey: .artworkSmallUrl) ?? ""
         artworkMediumUrl = try container.decodeIfPresent(String.self, forKey: .artworkMediumUrl) ?? ""
         artworkLargeUrl = try container.decodeIfPresent(String.self, forKey: .artworkLargeUrl) ?? ""
-        primaryGenreName = try container.decodeIfPresent(String.self, forKey: .primaryGenreName) ?? ""
+        primaryGenreName = try container.decodeIfPresent(String.self, forKey: .primaryGenreName) ?? "-"
         longDescription = try container.decodeIfPresent(String.self, forKey: .longDescription) ?? ""
     }
 }
