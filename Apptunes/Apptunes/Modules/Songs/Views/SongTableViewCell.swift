@@ -18,17 +18,23 @@ class SongTableViewCell: UITableViewCell, NibReusable {
     // MARK: - Properties
     private let shouldAnimateWhenTapped = true
     
+    // MARK: - Closures
+    var wantsToFavorite: (() -> Void)?
+    
     // MARK: - IB Outlets
     @IBOutlet private weak var artworkImageView: UIImageView!
     @IBOutlet private weak var genreLabel: UILabel!
     @IBOutlet private weak var trackNameLabel: UILabel!
     @IBOutlet private weak var artistNameLabel: UILabel!
     @IBOutlet private weak var trackPriceLabel: UILabel!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     // MARK: - Class Functions
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        
+        setupButtonActions()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,11 +56,22 @@ class SongTableViewCell: UITableViewCell, NibReusable {
     }
     
     // MARK: - User Functions
-    func setup(with song: ItunesTrack) {
+    private func setupButtonActions() {
+        favoriteButton.onTap { [weak self] in
+            guard let self = self else { return }
+            
+            self.wantsToFavorite?()
+        }
+    }
+    
+    func setup(with song: ItunesTrack, isFavorite: Bool = false) {
         artworkImageView.setKfImage(imageURL: song.artworkMediumUrl)
         genreLabel.text = song.primaryGenreName
         trackNameLabel.text = song.trackName
         artistNameLabel.text = song.artistName
         trackPriceLabel.text = "\(song.currency) \(song.trackPrice)"
+        
+        let favoriteImage = isFavorite ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: favoriteImage), for: .normal)
     }
 }

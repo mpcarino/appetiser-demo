@@ -132,6 +132,7 @@
             <connections>
                 <outlet property="artistNameLabel" destination="XKT-nJ-few" id="atG-Fy-RIg"/>
                 <outlet property="artworkImageView" destination="dLu-ha-bmS" id="6Y6-Z3-UUE"/>
+                <outlet property="favoriteButton" destination="ypH-wy-PkW" id="tNL-XJ-8Nv"/>
                 <outlet property="genreLabel" destination="Ell-Nc-hJ4" id="ML7-O6-d6w"/>
                 <outlet property="trackNameLabel" destination="5vt-GE-DoH" id="p55-cH-ZMW"/>
                 <outlet property="trackPriceLabel" destination="9To-t0-Rbh" id="rJa-Cx-ShM"/>
