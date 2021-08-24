@@ -27,7 +27,7 @@
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lZ6-XJ-ndo">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="72"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-ha-bmS">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-ha-bmS">
                                                 <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dLu-ha-bmS" secondAttribute="height" multiplier="1:1" id="3qD-29-jGs"/>
@@ -142,6 +142,7 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="imgPlaceholder" width="750" height="750"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
