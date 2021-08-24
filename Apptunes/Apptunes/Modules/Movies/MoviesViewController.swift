@@ -69,7 +69,7 @@ class MoviesViewController: UIViewController {
             cell.setup(with: movies)
             
             cell.didSelectMovie = { movie in
-                self.showTrackDetails(movie)
+                self.showTrackDetails(input: .init(track: movie), output: .init(wantsToUpdateFavoriteList: nil))
             }
             
             return cell
