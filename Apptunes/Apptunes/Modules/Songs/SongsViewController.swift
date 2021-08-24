@@ -10,6 +10,7 @@ import UIKit
 import Closures
 import PromiseKit
 import SnapKit
+import CoreData
 
 class SongsViewController: UIViewController {
     // MARK: - Enums
@@ -27,9 +28,25 @@ class SongsViewController: UIViewController {
     
     // MARK: - Properties
     private let itunesService = ItunesService()
-    private let sections: [Section] = [.favorite, .all]
+    private var sections: [Section] = [.all]
+    private var favoriteSongObjects: [NSManagedObject] = []
+    
     private var songs: [ItunesTrack] {
         return UserDataManager.shared.songs
+    }
+    
+    private var favoriteSongs: [ItunesTrack] {
+        let songs = self.songs.filter { song in
+            self.favoriteSongObjects.contains(where: {
+                if let id = $0.value(forKey: "id") as? Int32 {
+                    return id == song.id
+                }
+                
+                return false
+            })
+        }
+        
+        return songs
     }
     
     // MARK: - IB Outlets
@@ -57,17 +74,20 @@ class SongsViewController: UIViewController {
             
             return self.sections.count
         }
-        .numberOfRows { [weak self] _ in
+        .numberOfRows { [weak self] section in
             guard let self = self else { return .zero }
             
-            return self.songs.count
+            switch self.sections[section] {
+            case .favorite: return self.favoriteSongs.count
+            case .all: return self.songs.count
+            }
         }
         .heightForHeaderInSection { _ in
             return 44.0
         }
         .viewForHeaderInSection { [weak self] section in
             guard let self = self else { return UIView() }
-        
+            
             return self.songsTableView.createHeaderView(with: self.sections[section].title)
         }
         .heightForRowAt { indexPath in
@@ -76,16 +96,53 @@ class SongsViewController: UIViewController {
         .cellForRow { [weak self] indexPath in
             guard let self = self else { return UITableViewCell() }
             
+            var song: ItunesTrack
+            
+            switch self.sections[indexPath.section] {
+            case .favorite:
+                song = self.favoriteSongs[indexPath.row]
+            case .all:
+                song = self.songs[indexPath.row]
+            }
+            
+            let isFavorite = self.favoriteSongObjects.contains(where: {
+                if let id = $0.value(forKey: "id") as? Int32 {
+                    return id == song.id
+                }
+                
+                return false
+            })
+            
             let cell = self.songsTableView.dequeueReusableCell(for: indexPath, cellType: SongTableViewCell.self)
-            cell.setup(with: self.songs[indexPath.row])
+            cell.setup(with: song, isFavorite: isFavorite)
+            
+            cell.wantsToFavorite = {
+                UserDataManager.shared.addFavoriteTrack(song)
+                self.updateFavoriteSongs()
+            }
             
             return cell
         }
         .didSelectRowAt { [weak self] indexPath in
             guard let self = self else { return }
             
-            self.showTrackDetails(self.songs[indexPath.row])
+            self.showTrackDetails(input: .init(track: self.songs[indexPath.row]),
+                                  output: .init(wantsToUpdateFavoriteList: {
+                                    self.updateFavoriteSongs()
+                                  }))
         }
+    }
+    
+    private func updateFavoriteSongs() {
+        favoriteSongObjects = UserDataManager.shared.favoriteTracks
+        
+        if favoriteSongs.isEmpty {
+            sections = [.all]
+        } else {
+            sections = [.favorite, .all]
+        }
+        
+        songsTableView.reloadData()
     }
     
     // MARK: - API Requests
@@ -94,7 +151,7 @@ class SongsViewController: UIViewController {
             guard let self = self else { return }
             
             DispatchQueue.main.async {
-                self.songsTableView.reloadData()
+                self.updateFavoriteSongs()
             }
         })
     }
@@ -103,7 +160,7 @@ class SongsViewController: UIViewController {
 extension SongsViewController: StoryboardGenerateable {
     struct Input {}
     struct Output {}
-
+    
     static func generateFromStoryboard(input: Input, output: Output) -> SongsViewController {
         let viewController = StoryboardScene.Songs.songsViewController.instantiate()
         
